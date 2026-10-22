@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const defaultBaseURL = import.meta.env.DEV
+  ? "http://localhost:5000"
+  : "https://spendwiseback-orpin.vercel.app";
+
 const api = axios.create({
-  baseURL: (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/+$/, ""),
+  baseURL: (import.meta.env.VITE_API_URL || defaultBaseURL).replace(/\/+$/, ""),
   withCredentials: true,
 });
 
